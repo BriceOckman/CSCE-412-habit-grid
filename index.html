@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Habit Grid</title>
+  <meta name="description" content="A tiny habit tracker: rows of habits, columns of days, click to check off." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div>
+        <h1>Habit Grid</h1>
+        <p class="tagline">One click per day. Keep the streak alive.</p>
+      </div>
+    </header>
+
+    <section class="card add-habit" aria-label="Add a habit">
+      <form id="add-form" autocomplete="off">
+        <input
+          id="habit-input"
+          type="text"
+          placeholder="New habit — e.g. Read 20 pages"
+          maxlength="80"
+          aria-label="New habit name"
+        />
+        <button type="submit">Add</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="weekbar">
+        <div class="weeknav" role="group" aria-label="Week navigation">
+          <button id="prev-week" type="button" title="Previous week">←</button>
+          <button id="today-week" type="button" title="Back to the current week">Today</button>
+          <button id="next-week" type="button" title="Next week">→</button>
+        </div>
+        <h2 id="week-label" class="week-label" aria-live="polite"></h2>
+      </div>
+
+      <div id="empty-hint" class="empty-hint" hidden>
+        <p><strong>No habits yet.</strong></p>
+        <p>Add your first habit above — the grid for this week will appear here.</p>
+      </div>
+
+      <div id="grid-scroll" class="grid-scroll">
+        <table id="grid" class="grid" hidden></table>
+      </div>
+    </section>
+
+    <footer class="footnote">
+      <p>Cells for days after today can't be checked yet. Data stays in this browser (localStorage) — nothing is sent anywhere.</p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
