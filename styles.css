@@ -1,0 +1,293 @@
+:root {
+  --bg: #f6f7f9;
+  --card: #ffffff;
+  --ink: #1e2430;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --accent: #4f7cff;
+  --accent-soft: #e8eefc;
+  --done: #34c77b;
+  --danger: #e05656;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+}
+
+.masthead h1 {
+  margin: 0 0 4px;
+  font-size: 1.9rem;
+  letter-spacing: -0.02em;
+}
+
+.tagline {
+  margin: 0 0 24px;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(30, 36, 48, 0.04);
+}
+
+/* ---- add habit ---- */
+.add-habit form {
+  display: flex;
+  gap: 10px;
+}
+
+.add-habit input {
+  flex: 1;
+  min-width: 0;
+  padding: 11px 14px;
+  font-size: 1rem;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  outline: none;
+}
+
+.add-habit input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.add-habit button {
+  padding: 11px 22px;
+  border: none;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.add-habit button:hover { filter: brightness(0.95); }
+.add-habit button:active { transform: translateY(1px); }
+
+/* ---- week nav ---- */
+.weekbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.weeknav {
+  display: flex;
+  gap: 8px;
+}
+
+.weeknav button {
+  padding: 7px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 9px;
+  background: #fff;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.weeknav button:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.weeknav button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.week-label {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+/* ---- empty hint ---- */
+.empty-hint {
+  text-align: center;
+  padding: 36px 16px;
+  color: var(--muted);
+  border: 2px dashed var(--line);
+  border-radius: var(--radius);
+}
+
+.empty-hint p { margin: 6px 0; }
+
+/* ---- grid ---- */
+.grid-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.grid {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: separate;
+  border-spacing: 0 6px;
+}
+
+.grid th {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  font-weight: 700;
+  padding: 6px 4px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.grid th .day-num {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--ink);
+  margin-top: 2px;
+}
+
+.grid th.is-today .day-num {
+  color: var(--accent);
+}
+
+.grid td {
+  padding: 4px;
+  vertical-align: middle;
+}
+
+.habit-cell {
+  min-width: 200px;
+}
+
+.habit-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding-right: 8px;
+}
+
+.habit-name .name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.streak {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--muted);
+  background: #f1f2f5;
+  border-radius: 999px;
+  padding: 3px 9px;
+  white-space: nowrap;
+}
+
+.streak.hot {
+  color: #b3540a;
+  background: #fdeeda;
+}
+
+.delete-btn {
+  border: none;
+  background: none;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1;
+  padding: 4px 6px;
+  border-radius: 8px;
+}
+
+.delete-btn:hover {
+  color: var(--danger);
+  background: #fdeaea;
+}
+
+.daycell { text-align: center; }
+
+.cell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  border: 1.5px solid var(--line);
+  background: #fff;
+  font-size: 1rem;
+  color: transparent;
+  user-select: none;
+}
+
+.cell:not(:disabled):hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.cell.done {
+  background: var(--done);
+  border-color: var(--done);
+  color: #fff;
+}
+
+.cell:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  background: #f4f5f7;
+}
+
+.cell.today { outline: 2px solid var(--accent-soft); outline-offset: 1px; }
+
+.stat-cell {
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding-left: 12px;
+  min-width: 96px;
+}
+
+.stat-cell strong { color: var(--ink); }
+
+/* ---- footer ---- */
+.footnote {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 8px;
+}
+
+.footnote p { margin: 4px 0; }
+
+@media (max-width: 560px) {
+  .page { padding: 24px 12px 48px; }
+  .card { padding: 14px; }
+  .habit-cell { min-width: 150px; }
+  .cell { width: 32px; height: 32px; }
+}
